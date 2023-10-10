@@ -1,6 +1,6 @@
 {
   "name": "rn-user-preference-modal",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A injectable modal in react-native apps to host user preferences",
   "main": "index.js",
   "scripts": {
