@@ -1,4 +1,4 @@
 export * from './UserPreference/UserPreferenceContext';
 export * from './UserPreference/UserPreferenceModal';
 export * from './GenericModal';
-export * from './UserPreferenceModalProps';
+export { default as UserPreferenceModal } from './UserPreference/UserPreferenceModal';
