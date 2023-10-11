@@ -3,7 +3,7 @@ import GenericModal from '../GenericModal';
 import {UserPreferenceModalProps} from '../UserPreferenceModalProps';
 import { useUserPreference } from './UserPreferenceContext';
 
-export const UserPreferenceModal: React.FC<UserPreferenceModalProps> = ({onLogout, children, config}) => {
+const UserPreferenceModal: React.FC<UserPreferenceModalProps> = ({onLogout, children, config}) => {
   const {
     isUserPreferenceOpen,
     handleCloseUserPreference,
@@ -19,3 +19,5 @@ export const UserPreferenceModal: React.FC<UserPreferenceModalProps> = ({onLogou
     </GenericModal>
   );
 };
+
+export default UserPreferenceModal;
