@@ -19,7 +19,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserPreferenceModal = void 0;
 __exportStar(require("./UserPreference/UserPreferenceContext"), exports);
-__exportStar(require("./UserPreference/UserPreferenceModal"), exports);
+__exportStar(require("./UserPreferenceModalProps"), exports);
 __exportStar(require("./GenericModal"), exports);
 var UserPreferenceModal_1 = require("./UserPreference/UserPreferenceModal");
 Object.defineProperty(exports, "UserPreferenceModal", { enumerable: true, get: function () { return __importDefault(UserPreferenceModal_1).default; } });
