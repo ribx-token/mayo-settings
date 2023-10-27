@@ -8,7 +8,7 @@ Add the package from npm.
 
 
 ```Javascript
-import { useUserPreference, UserPreferenceModal } from 'mayo-user-preference-modal';
+import { useUserPreference, UserPreferenceModal } from 'mayo-settings';
 const HomeScreen = () => {
   const { performLogout } = useLogout(); // Provide your logout implementation
  
@@ -46,7 +46,7 @@ const HomeScreen = () => {
 
 ````Javascript
 
-import { UserPreferenceProvider } from 'mayo-user-preference-modal';
+import { UserPreferenceProvider } from 'mayo-settings';
 
 export const MainApp: React.FC = () => {
 ...
