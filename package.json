@@ -1,6 +1,6 @@
 {
-  "name": "rn-user-preference-modal",
-  "version": "1.1.0",
+  "name": "mayo-user-preference-modal",
+  "version": "1.1.2",
   "description": "A injectable modal in react-native apps to host user preferences",
   "main": "dist/index.js",
   "scripts": {
@@ -19,9 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bennekrouf/rn-user-preference-modal.git"
+    "url": "git+https://github.com/bennekrouf/mayo-user-preference-modal.git"
   },
   "dependencies": {
-    "@types/react": "^18.2.27"
+    "@types/react": "^18.2.27",
+    "mayo-logger": "^1.0.8"
   }
 }
