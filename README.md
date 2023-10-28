@@ -10,9 +10,11 @@ npm install mayo-settings-modal
 yarn add mayo-settings-modal
 ```
 
+
 ## 📖 Usage
 
-Wrapping your app with MayoSettingsProvider
+### Wrapping your app with MayoSettingsProvider
+
 First, wrap your application with MayoSettingsProvider. This provides the necessary context for MayoSettingsModal.
 
 ```Typescript
@@ -27,7 +29,8 @@ function App() {
 }
 ```
 
-### Using MayoSettingsModal in your component
+
+### Using MayoSettingsModal in your component
 
 Here's how you can use the MayoSettingsModal in your component:
 
@@ -41,9 +44,15 @@ function SettingsComponent() {
     <>
       <Button onPress={handleOpenUserPreference} title="Open Settings" />
 
-      <MayoSettingsModal onLogout={() => {
-        // Handle logout logic here
-      }}>
+      <MayoSettingsModal
+        visible={isUserPreferenceOpen}
+        onClose={handleCloseUserPreference}
+        onLogout={handleLogout}
+        config={{
+          headerTitle: 'Custom Settings',
+          logoutButtonText: 'Custom Logout',
+        }}
+      >
         {/* Your custom settings go here */}
       </MayoSettingsModal>
     </>
@@ -51,8 +60,28 @@ function SettingsComponent() {
 }
 ```
 
+## 🛠️ Props and Configuration
 
-## 🔍 API
+Here are some of the available props and configuration options you can pass to __`MayoSettingsModal`__:
+
+| Prop Name | Type     | Description                                          |
+|-----------|----------|------------------------------------------------------|
+| visible   | boolean  | Determines if the modal is visible.                   |
+| onClose   | function | Callback function when closing the modal.             |
+| onLogout  | function | Callback function when the logout action is triggered.|
+| config    | object   | Configuration object for additional modal settings.   |
+
+
+For the __`config`__ object:
+
+| Property Name     | Type   | Description                              |
+|-------------------|--------|------------------------------------------|
+| headerTitle       | string | Title text for the modal header.         |
+| logoutButtonText  | string | Text for the logout action button.       |
+
+
+
+##  🔍 API
 
 ### `MayoSettingsModal`
 
@@ -67,8 +96,8 @@ function SettingsComponent() {
 
 Hook to manage user preferences.
 
-- `__handleOpenUserPreference()__`: Opens the user preference modal.
-- `__handleCloseUserPreference()__`: Closes the user preference modal.
+- __`handleOpenUserPreference()`__: Opens the user preference modal.
+- __`handleCloseUserPreference()`__: Closes the user preference modal.
 
 
 ## 📚 License
