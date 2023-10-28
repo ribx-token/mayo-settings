@@ -12,7 +12,7 @@ interface UserPreferenceProviderProps {
   children: ReactNode;
 }
 
-export const UserPreferenceProvider: React.FC<UserPreferenceProviderProps> = ({ children }) => {
+export const MayoSettingsProvider: React.FC<UserPreferenceProviderProps> = ({ children }) => {
   const [isUserPreferenceOpen, setIsUserPreferenceOpen] = useState(false);
 
   const handleOpenUserPreference = () => {
@@ -30,7 +30,7 @@ export const UserPreferenceProvider: React.FC<UserPreferenceProviderProps> = ({ 
 export const useUserPreference = (): UserPreferenceContextProps => {
   const context = useContext(UserPreferenceContext);
   if (!context) {
-    throw new Error("useUserPreference must be used within an UserPreferenceProvider");
+    throw new Error("useUserPreference must be used within an MayoSettingsProvider");
   }
   return context;
 };

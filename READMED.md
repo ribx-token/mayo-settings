@@ -1,67 +1,77 @@
+# MayoSettingsModal for React Native
 
+Easily integrate a user preference modal in your React Native applications with MayoSettingsModal.
 
-Add the package from npm.
+## 🚀 Installation
 
+```Bash
+npm install mayo-settings-modal
+# OR
+yarn add mayo-settings-modal
+```
 
+## 📖 Usage
 
-## HomeScreen.tsx
+Wrapping your app with MayoSettingsProvider
+First, wrap your application with MayoSettingsProvider. This provides the necessary context for MayoSettingsModal.
 
+```Typescript
+import { MayoSettingsProvider } from 'mayo-settings-modal';
 
-```Javascript
-import { useUserPreference, UserPreferenceModal } from 'mayo-settings';
-const HomeScreen = () => {
-  const { performLogout } = useLogout(); // Provide your logout implementation
- 
-  const { isUserPreferenceOpen, handleOpenUserPreference, handleCloseUserPreference } = useUserPreference();
-
+function App() {
   return (
-    <View>
-      <View>
-        <TouchableOpacity onPress={handleOpenUserPreference}>
-          <Text>...</Text>
-        </TouchableOpacity>
-      </View>
-
-    
-      <UserPreferenceModal
-        visible={isUserPreferenceOpen}
-        onClose={handleCloseUserPreference}
-        onLogout={performLogout}
-        config={{
-          headerTitle: 'Custom Settings',
-          logoutButtonText: 'Custom Logout',
-        }}
-      >
-        <Text>... specific modal content ...</Text>
-      </UserPreferenceModal>
-      
-    </View>
-   );
-};
-
-``````
-
-
-## AppNavigator.tsx
-
-````Javascript
-
-import { UserPreferenceProvider } from 'mayo-settings';
-
-export const MainApp: React.FC = () => {
-...
-
-return (
-    <NavigationContainer>
-        <UserPreferenceProvider>
-          <Stack.Navigator>
-            ...
-          </Stack.Navigator>
-        </UserPreferenceProvider>
-    </NavigationContainer>
+    <MayoSettingsProvider>
+      {/* Rest of your app components */}
+    </MayoSettingsProvider>
   );
 }
+```
 
-``````
+### Using MayoSettingsModal in your component
 
+Here's how you can use the MayoSettingsModal in your component:
+
+```Typescript
+import { MayoSettingsModal, useUserPreference } from 'mayo-settings-modal';
+
+function SettingsComponent() {
+  const { handleOpenUserPreference } = useUserPreference();
+
+  return (
+    <>
+      <Button onPress={handleOpenUserPreference} title="Open Settings" />
+
+      <MayoSettingsModal onLogout={() => {
+        // Handle logout logic here
+      }}>
+        {/* Your settings related components go here */}
+      </MayoSettingsModal>
+    </>
+  );
+}
+```
+
+
+## 🔍 API
+
+### `MayoSettingsModal`
+
+| Prop | Type | Description |
+|:--------:|:--------:|:--------:|
+| onLogout  | function  | Callback to handle logout logic.  |
+| children  | ReactNode  | Children components for your settings.  |
+| config  | object (optional)  | Configuration for the modal.  |
+
+
+### `useUserPreference`
+
+Hook to manage user preferences.
+
+- `__handleOpenUserPreference()__`: Opens the user preference modal.
+- `__handleCloseUserPreference()__`: Closes the user preference modal.
+
+
+## 📚 License
+
+This project is licensed under the MIT License.
 

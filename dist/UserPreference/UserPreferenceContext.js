@@ -23,10 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useUserPreference = exports.UserPreferenceProvider = void 0;
+exports.useUserPreference = exports.MayoSettingsProvider = void 0;
 const react_1 = __importStar(require("react"));
 const UserPreferenceContext = (0, react_1.createContext)(undefined);
-const UserPreferenceProvider = ({ children }) => {
+const MayoSettingsProvider = ({ children }) => {
     const [isUserPreferenceOpen, setIsUserPreferenceOpen] = (0, react_1.useState)(false);
     const handleOpenUserPreference = () => {
         setIsUserPreferenceOpen(true);
@@ -34,11 +34,11 @@ const UserPreferenceProvider = ({ children }) => {
     const handleCloseUserPreference = () => setIsUserPreferenceOpen(false);
     return (react_1.default.createElement(UserPreferenceContext.Provider, { value: { isUserPreferenceOpen, handleOpenUserPreference, handleCloseUserPreference } }, children));
 };
-exports.UserPreferenceProvider = UserPreferenceProvider;
+exports.MayoSettingsProvider = MayoSettingsProvider;
 const useUserPreference = () => {
     const context = (0, react_1.useContext)(UserPreferenceContext);
     if (!context) {
-        throw new Error("useUserPreference must be used within an UserPreferenceProvider");
+        throw new Error("useUserPreference must be used within an MayoSettingsProvider");
     }
     return context;
 };
