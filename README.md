@@ -5,9 +5,9 @@ Easily integrate a user preference modal in your React Native applications with 
 ## 🚀 Installation
 
 ```Bash
-npm install mayo-settings-modal
+npm install mayo-settings
 # OR
-yarn add mayo-settings-modal
+yarn add mayo-settings
 ```
 
 
@@ -18,7 +18,7 @@ yarn add mayo-settings-modal
 First, wrap your application with MayoSettingsProvider. This provides the necessary context for MayoSettingsModal.
 
 ```Typescript
-import { MayoSettingsProvider } from 'mayo-settings-modal';
+import { MayoSettingsProvider } from 'mayo-settings';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
 Here's how you can use the MayoSettingsModal in your component:
 
 ```Typescript
-import { MayoSettingsModal, useUserPreference } from 'mayo-settings-modal';
+import { MayoSettingsModal, useUserPreference } from 'mayo-settings';
 
 function SettingsComponent() {
   const { handleOpenUserPreference } = useUserPreference();
