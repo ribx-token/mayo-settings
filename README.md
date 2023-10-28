@@ -1,4 +1,4 @@
-# MayoSettingsModal for React Native
+# A generic user settings modal for React Native
 
 Easily integrate a user preference modal in your React Native applications with MayoSettingsModal.
 
@@ -44,7 +44,7 @@ function SettingsComponent() {
       <MayoSettingsModal onLogout={() => {
         // Handle logout logic here
       }}>
-        {/* Your settings related components go here */}
+        {/* Your custom settings go here */}
       </MayoSettingsModal>
     </>
   );
