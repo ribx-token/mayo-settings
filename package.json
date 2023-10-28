@@ -1,6 +1,6 @@
 {
   "name": "mayo-settings",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A injectable modal in react-native apps to host user preferences",
   "main": "dist/index.js",
   "scripts": {
