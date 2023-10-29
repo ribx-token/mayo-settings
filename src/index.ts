@@ -1,3 +1,3 @@
-export * from './UserPreference/UserPreferenceContext';
-export * from './UserPreferenceModalProps';
-export { default as MayoSettingsModal } from './UserPreference/MayoSettingsModal';
+export * from './MayoSettings/MayoSettingsContext';
+export * from './MayoSettingsModalProps';
+export { default as MayoSettingsModal } from './MayoSettings/MayoSettingsModal';

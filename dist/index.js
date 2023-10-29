@@ -18,7 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MayoSettingsModal = void 0;
-__exportStar(require("./UserPreference/UserPreferenceContext"), exports);
-__exportStar(require("./UserPreferenceModalProps"), exports);
-var MayoSettingsModal_1 = require("./UserPreference/MayoSettingsModal");
+__exportStar(require("./MayoSettings/MayoSettingsContext"), exports);
+__exportStar(require("./MayoSettingsModalProps"), exports);
+var MayoSettingsModal_1 = require("./MayoSettings/MayoSettingsModal");
 Object.defineProperty(exports, "MayoSettingsModal", { enumerable: true, get: function () { return __importDefault(MayoSettingsModal_1).default; } });

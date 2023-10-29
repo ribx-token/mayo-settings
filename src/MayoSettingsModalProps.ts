@@ -1,4 +1,4 @@
-export interface UserPreferenceModalProps {
+export interface MayoSettingsModalProps {
     visible: boolean;
     onClose: () => void;
     onLogout?: () => void;

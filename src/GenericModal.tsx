@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, ScrollView, Text, TouchableOpacity, Modal, StyleSheet} from 'react-native';
-import {UserPreferenceModalProps} from './UserPreferenceModalProps';
+import {MayoSettingsModalProps} from './MayoSettingsModalProps';
 
-const GenericModal: React.FC<UserPreferenceModalProps> = ({ visible, onClose, onLogout, children, showFooter, config }) => {
+const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLogout, children, showFooter, config }) => {
   // Default configuration
   const defaultConfig = {
     headerTitle: 'Settings',

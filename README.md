@@ -35,18 +35,18 @@ function App() {
 Here's how you can use the MayoSettingsModal in your component:
 
 ```JSX
-import { MayoSettingsModal, useUserPreference } from 'mayo-settings';
+import { MayoSettingsModal, useMayoSettings } from 'mayo-settings';
 
 function SettingsComponent() {
-  const { handleOpenUserPreference } = useUserPreference();
+  const { handleOpenMayoSettings } = useMayoSettings();
 
   return (
     <>
-      <Button onPress={handleOpenUserPreference} title="Open Settings" />
+      <Button onPress={handleOpenMayoSettings} title="Open Settings" />
 
       <MayoSettingsModal
-        visible={isUserPreferenceOpen}
-        onClose={handleCloseUserPreference}
+        visible={isMayoSettingsOpen}
+        onClose={handleCloseMayoSettings}
         onLogout={handleLogout}
         config={{
           headerTitle: 'Custom Settings',
@@ -92,12 +92,12 @@ For the __`config`__ object:
 | config  | object (optional)  | Configuration for the modal.  |
 
 
-### `useUserPreference`
+### `useMayoSettings`
 
 Hook to manage user preferences.
 
-- __`handleOpenUserPreference()`__: Opens the user preference modal.
-- __`handleCloseUserPreference()`__: Closes the user preference modal.
+- __`handleOpenMayoSettings()`__: Opens the user preference modal.
+- __`handleCloseMayoSettings()`__: Closes the user preference modal.
 
 
 ## 📚 License
