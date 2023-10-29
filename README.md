@@ -17,7 +17,7 @@ yarn add mayo-settings
 
 First, wrap your application with MayoSettingsProvider. This provides the necessary context for MayoSettingsModal.
 
-```Typescript
+```JSX
 import { MayoSettingsProvider } from 'mayo-settings';
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
 
 Here's how you can use the MayoSettingsModal in your component:
 
-```Typescript
+```JSX
 import { MayoSettingsModal, useUserPreference } from 'mayo-settings';
 
 function SettingsComponent() {
