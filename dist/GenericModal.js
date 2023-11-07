@@ -5,14 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const react_native_1 = require("react-native");
-const GenericModal = ({ visible, onClose, onLogout, children, showFooter, config }) => {
+const GenericModal = ({ visible, onClose, onLogout, children, config }) => {
     // Default configuration
     const defaultConfig = {
         headerTitle: 'Settings',
         logoutButtonText: 'Logout',
+        showFooter: false
     };
     // Merge default config and provided config
-    const { headerTitle, logoutButtonText } = Object.assign(Object.assign({}, defaultConfig), config);
+    const { headerTitle, logoutButtonText, showFooter } = Object.assign(Object.assign({}, defaultConfig), config);
     return (react_1.default.createElement(react_native_1.Modal, { visible: visible, animationType: "slide", transparent: true, onRequestClose: onClose },
         react_1.default.createElement(react_native_1.View, { style: modalStyles.overlay },
             react_1.default.createElement(react_native_1.View, { style: modalStyles.container },
@@ -36,7 +37,7 @@ const modalStyles = react_native_1.StyleSheet.create({
         backgroundColor: 'white',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        justifyContent: 'space-between',
+        paddingBottom: 50,
     },
     header: {
         flexDirection: 'row',
@@ -62,11 +63,13 @@ const modalStyles = react_native_1.StyleSheet.create({
         alignItems: 'center',
     },
     content: {
-        minHeight: 600,
-        maxHeight: 600,
+        flex: 1,
         padding: 10,
     },
     logoutButton: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
         padding: 15,
         paddingLeft: 30,
         paddingBottom: 20,

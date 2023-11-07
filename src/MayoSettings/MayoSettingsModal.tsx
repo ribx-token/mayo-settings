@@ -10,7 +10,7 @@ const MayoSettingsModal: React.FC<MayoSettingsModalProps> = ({onLogout, children
     <GenericModal 
     visible={isMayoSettingsOpen} 
     onClose={handleCloseMayoSettings}
-    onLogout={onLogout} showFooter={true}
+    onLogout={onLogout}
     config={config}>
       {children}
     </GenericModal>

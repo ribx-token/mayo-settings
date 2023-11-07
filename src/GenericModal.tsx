@@ -2,15 +2,16 @@ import React from 'react';
 import {View, ScrollView, Text, TouchableOpacity, Modal, StyleSheet} from 'react-native';
 import {MayoSettingsModalProps} from './MayoSettingsModalProps';
 
-const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLogout, children, showFooter, config }) => {
+const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLogout, children, config }) => {
   // Default configuration
   const defaultConfig = {
     headerTitle: 'Settings',
     logoutButtonText: 'Logout',
+    showFooter: false
   };
   
   // Merge default config and provided config
-  const { headerTitle, logoutButtonText } = { ...defaultConfig, ...config };
+  const { headerTitle, logoutButtonText, showFooter } = { ...defaultConfig, ...config };
 
   return (
     <Modal
@@ -58,7 +59,7 @@ const modalStyles = StyleSheet.create({
     backgroundColor: 'white',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    justifyContent: 'space-between',
+    paddingBottom: 50, 
   },
   header: {
     flexDirection: 'row',
@@ -84,11 +85,13 @@ const modalStyles = StyleSheet.create({
     alignItems: 'center',
   },
   content: {
-    minHeight: 600,
-    maxHeight: 600,
+    flex: 1,
     padding: 10,
   },
   logoutButton: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
     padding: 15,
     paddingLeft: 30,
     paddingBottom: 20,
