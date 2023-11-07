@@ -10,6 +10,4 @@ export interface MayoSettingsModalProps {
 export interface ModalConfig {
   headerTitle?: string;
   logoutButtonText?: string;
-  // any other configurations...
 }
-  

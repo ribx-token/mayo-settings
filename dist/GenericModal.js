@@ -10,7 +10,6 @@ const GenericModal = ({ visible, onClose, onLogout, children, showFooter, config
     const defaultConfig = {
         headerTitle: 'Settings',
         logoutButtonText: 'Logout',
-        // ...any other defaults...
     };
     // Merge default config and provided config
     const { headerTitle, logoutButtonText } = Object.assign(Object.assign({}, defaultConfig), config);
@@ -33,7 +32,7 @@ const modalStyles = react_native_1.StyleSheet.create({
     },
     container: {
         width: '100%',
-        height: '80%',
+        height: '90%',
         backgroundColor: 'white',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,

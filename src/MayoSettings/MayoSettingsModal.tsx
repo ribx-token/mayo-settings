@@ -4,10 +4,7 @@ import {MayoSettingsModalProps} from '../MayoSettingsModalProps';
 import { useMayoSettings } from './MayoSettingsContext';
 
 const MayoSettingsModal: React.FC<MayoSettingsModalProps> = ({onLogout, children, config}) => {
-  const {
-    isMayoSettingsOpen,
-    handleCloseMayoSettings,
-  } = useMayoSettings();
+  const { isMayoSettingsOpen, handleCloseMayoSettings } = useMayoSettings();
 
   return (
     <GenericModal 
