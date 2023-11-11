@@ -1,8 +1,22 @@
-import React from 'react';
-import {View, ScrollView, Text, TouchableOpacity, Modal, StyleSheet} from 'react-native';
+import React, {useRef} from 'react';
 import {MayoSettingsModalProps} from './MayoSettingsModalProps';
+import { View, ScrollView, Text, TouchableOpacity, Modal, StyleSheet, PanResponder } from 'react-native';
 
 const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLogout, children, config }) => {
+  // Initialize PanResponder
+  const panResponder = useRef(PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderMove: (evt, gestureState) => {
+      // You can add logic here if you want to respond to the moving gesture
+    },
+    onPanResponderRelease: (evt, gestureState) => {
+      if (gestureState.dy > 50) { // Adjust this threshold to your liking
+        onClose(); // Close the modal if a downward swipe is detected
+      }
+    },
+  })).current;
+  
   // Default configuration
   const defaultConfig = {
     headerTitle: 'Settings',
@@ -20,7 +34,7 @@ const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLo
       transparent={true}
       onRequestClose={onClose}>
       <View style={modalStyles.overlay}>
-        <View style={modalStyles.container}>
+        <View style={modalStyles.container} {...panResponder.panHandlers}>
           
           {/* Modal Header */}
           <View style={modalStyles.header}>
