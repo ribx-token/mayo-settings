@@ -34,10 +34,10 @@ const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLo
       transparent={true}
       onRequestClose={onClose}>
       <View style={modalStyles.overlay}>
-        <View style={modalStyles.container} {...panResponder.panHandlers}>
+        <View style={modalStyles.container}>
           
           {/* Modal Header */}
-          <View style={modalStyles.header}>
+          <View style={modalStyles.header} {...panResponder.panHandlers}>
             <Text style={modalStyles.headerTitle}>{headerTitle}</Text>
             <TouchableOpacity style={modalStyles.closeButton} onPress={onClose}>
               <Text style={{color: 'black', fontSize: 18}}>X</Text>

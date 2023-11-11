@@ -49,8 +49,8 @@ const GenericModal = ({ visible, onClose, onLogout, children, config }) => {
     const { headerTitle, logoutButtonText, showFooter } = Object.assign(Object.assign({}, defaultConfig), config);
     return (react_1.default.createElement(react_native_1.Modal, { visible: visible, animationType: "slide", transparent: true, onRequestClose: onClose },
         react_1.default.createElement(react_native_1.View, { style: modalStyles.overlay },
-            react_1.default.createElement(react_native_1.View, Object.assign({ style: modalStyles.container }, panResponder.panHandlers),
-                react_1.default.createElement(react_native_1.View, { style: modalStyles.header },
+            react_1.default.createElement(react_native_1.View, { style: modalStyles.container },
+                react_1.default.createElement(react_native_1.View, Object.assign({ style: modalStyles.header }, panResponder.panHandlers),
                     react_1.default.createElement(react_native_1.Text, { style: modalStyles.headerTitle }, headerTitle),
                     react_1.default.createElement(react_native_1.TouchableOpacity, { style: modalStyles.closeButton, onPress: onClose },
                         react_1.default.createElement(react_native_1.Text, { style: { color: 'black', fontSize: 18 } }, "X"))),
