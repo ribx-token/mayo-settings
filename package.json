@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "@types/react": "^18.2.27",
-    "mayo-logger": "^1.0.8"
+    "mayo-logger": "^1.1.0"
   }
 }
