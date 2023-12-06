@@ -21,7 +21,7 @@
     "url": "git+https://github.com/bennekrouf/mayo-settings.git"
   },
   "dependencies": {
-    "@types/react": "^18.2.27",
+    "@types/react": "^18.2.33",
     "mayo-logger": "^1.0.8"
   }
 }
