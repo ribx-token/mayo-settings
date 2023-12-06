@@ -1,27 +1,34 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
+interface MayoSettingsProviderProps {
+  children: ReactNode;
+}
+interface ModalState {
+  id: string;
+  isOpen: boolean;
+}
+
 interface MayoSettingsContextProps {
-  isMayoSettingsOpen: boolean;
-  handleOpenMayoSettings: () => void;
-  handleCloseMayoSettings: () => void;
+  modalStates: ModalState[];
+  openModal: (id: string) => void;
+  closeModal: (id: string) => void;
 }
 
 const MayoSettingsContext = createContext<MayoSettingsContextProps | undefined>(undefined);
 
-interface MayoSettingsProviderProps {
-  children: ReactNode;
-}
-
 export const MayoSettingsProvider: React.FC<MayoSettingsProviderProps> = ({ children }) => {
-  const [isMayoSettingsOpen, setIsMayoSettingsOpen] = useState(false);
+  const [modalStates, setModalStates] = useState<ModalState[]>([]);
 
-  const handleOpenMayoSettings = () => {
-    setIsMayoSettingsOpen(true);
+  const openModal = (id: string) => {
+    setModalStates(prev => [...prev.filter(modal => modal.id !== id), { id, isOpen: true }]);
   };
-  const handleCloseMayoSettings = () => setIsMayoSettingsOpen(false);
+
+  const closeModal = (id: string) => {
+    setModalStates(prev => prev.map(modal => modal.id === id ? { ...modal, isOpen: false } : modal));
+  };
 
   return (
-    <MayoSettingsContext.Provider value={{ isMayoSettingsOpen, handleOpenMayoSettings, handleCloseMayoSettings }}>
+    <MayoSettingsContext.Provider value={{ modalStates, openModal, closeModal }}>
       {children}
     </MayoSettingsContext.Provider>
   );
@@ -30,7 +37,7 @@ export const MayoSettingsProvider: React.FC<MayoSettingsProviderProps> = ({ chil
 export const useMayoSettings = (): MayoSettingsContextProps => {
   const context = useContext(MayoSettingsContext);
   if (!context) {
-    throw new Error("useMayoSettings must be used within an MayoSettingsProvider");
+    throw new Error("useMayoSettings must be used within a MayoSettingsProvider");
   }
   return context;
 };

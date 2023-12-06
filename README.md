@@ -1,6 +1,6 @@
 # A generic user settings modal for React Native
 
-Easily integrate a user preference modal in your React Native applications with MayoSettingsModal.
+Easily integrate a user preference modal in your React Native applications with MayoSettingsModal, now supporting multiple independent modal instances.
 
 ## 🚀 Installation
 
@@ -15,7 +15,7 @@ yarn add mayo-settings
 
 ### Wrapping your app with MayoSettingsProvider
 
-First, wrap your application with MayoSettingsProvider. This provides the necessary context for MayoSettingsModal.
+First, wrap your application with __MayoSettingsProvider__. This provides the necessary context for managing multiple MayoSettingsModal instances.
 
 ```JSX
 import { MayoSettingsProvider } from 'mayo-settings';
@@ -38,15 +38,15 @@ Here's how you can use the MayoSettingsModal in your component:
 import { MayoSettingsModal, useMayoSettings } from 'mayo-settings';
 
 function SettingsComponent() {
-  const { handleOpenMayoSettings } = useMayoSettings();
+  const { openModal, closeModal } = useMayoSettings();
 
   return (
     <>
-      <Button onPress={handleOpenMayoSettings} title="Open Settings" />
+      <Button onPress={() => openModal("settingsModalId")} title="Open Settings" />
 
       <MayoSettingsModal
-        visible={isMayoSettingsOpen}
-        onClose={handleCloseMayoSettings}
+        id="settingsModalId"
+        onClose={() => closeModal("settingsModalId")}
         onLogout={handleLogout}
         config={{
           headerTitle: 'Custom Settings',
@@ -66,7 +66,7 @@ Here are some of the available props and configuration options you can pass to _
 
 | Prop Name | Type     | Description                                          |
 |-----------|----------|------------------------------------------------------|
-| visible   | boolean  | Determines if the modal is visible.                   |
+| id   | boolean  | A unique identifier for the modal instance.                   |
 | onClose   | function | Callback function when closing the modal.             |
 | onLogout  | function | Callback function when the logout action is triggered.|
 | config    | object   | Configuration object for additional modal settings.   |
@@ -78,6 +78,7 @@ For the __`config`__ object:
 |-------------------|--------|------------------------------------------|
 | headerTitle       | string | Title text for the modal header.         |
 | logoutButtonText  | string | Text for the logout action button.       |
+| showFooter  | boolean | Shows of not the footer with the logout button       |
 
 
 
@@ -96,8 +97,8 @@ For the __`config`__ object:
 
 Hook to manage user preferences.
 
-- __`handleOpenMayoSettings()`__: Opens the user preference modal.
-- __`handleCloseMayoSettings()`__: Closes the user preference modal.
+- __`openModal(id: string)`__: Opens a modal by its unique ID.
+- __`closeModal(id: string)`__: Closes a modal by its unique ID.
 
 
 ## 📚 License

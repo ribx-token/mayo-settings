@@ -27,18 +27,20 @@ exports.useMayoSettings = exports.MayoSettingsProvider = void 0;
 const react_1 = __importStar(require("react"));
 const MayoSettingsContext = (0, react_1.createContext)(undefined);
 const MayoSettingsProvider = ({ children }) => {
-    const [isMayoSettingsOpen, setIsMayoSettingsOpen] = (0, react_1.useState)(false);
-    const handleOpenMayoSettings = () => {
-        setIsMayoSettingsOpen(true);
+    const [modalStates, setModalStates] = (0, react_1.useState)([]);
+    const openModal = (id) => {
+        setModalStates(prev => [...prev.filter(modal => modal.id !== id), { id, isOpen: true }]);
     };
-    const handleCloseMayoSettings = () => setIsMayoSettingsOpen(false);
-    return (react_1.default.createElement(MayoSettingsContext.Provider, { value: { isMayoSettingsOpen, handleOpenMayoSettings, handleCloseMayoSettings } }, children));
+    const closeModal = (id) => {
+        setModalStates(prev => prev.map(modal => modal.id === id ? Object.assign(Object.assign({}, modal), { isOpen: false }) : modal));
+    };
+    return (react_1.default.createElement(MayoSettingsContext.Provider, { value: { modalStates, openModal, closeModal } }, children));
 };
 exports.MayoSettingsProvider = MayoSettingsProvider;
 const useMayoSettings = () => {
     const context = (0, react_1.useContext)(MayoSettingsContext);
     if (!context) {
-        throw new Error("useMayoSettings must be used within an MayoSettingsProvider");
+        throw new Error("useMayoSettings must be used within a MayoSettingsProvider");
     }
     return context;
 };
