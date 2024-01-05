@@ -1,6 +1,6 @@
 {
   "name": "mayo-settings",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "A injectable modal in react-native apps to host user preferences",
   "main": "dist/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "url": "git+https://github.com/bennekrouf/mayo-settings.git"
   },
   "dependencies": {
-    "@types/react": "^18.2.27",
+    "@types/react": "^18.2.33",
     "mayo-logger": "^1.0.8"
   }
 }
