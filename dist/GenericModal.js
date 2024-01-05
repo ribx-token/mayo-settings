@@ -54,6 +54,9 @@ const GenericModal = ({ visible, onClose, onLogout, children, config }) => {
                     react_1.default.createElement(react_native_1.Text, { style: modalStyles.headerTitle }, headerTitle),
                     react_1.default.createElement(react_native_1.TouchableOpacity, { style: modalStyles.closeButton, onPress: onClose },
                         react_1.default.createElement(react_native_1.Text, { style: { color: 'black', fontSize: 18 } }, "X"))),
+                react_1.default.createElement(react_native_1.View, { style: modalStyles.displayNameContainer },
+                    react_1.default.createElement(react_native_1.Text, { style: modalStyles.displayNameText }, config === null || config === void 0 ? void 0 : config.displayName),
+                    react_1.default.createElement(react_native_1.Image, { source: { uri: config === null || config === void 0 ? void 0 : config.photoURL }, style: modalStyles.avatarImage })),
                 react_1.default.createElement(react_native_1.ScrollView, { style: modalStyles.content }, children),
                 showFooter && (react_1.default.createElement(react_native_1.TouchableOpacity, { style: modalStyles.logoutButton, onPress: onLogout },
                     react_1.default.createElement(react_native_1.Text, { style: { color: 'red', fontSize: 16 } }, logoutButtonText)))))));
@@ -108,6 +111,27 @@ const modalStyles = react_native_1.StyleSheet.create({
         paddingBottom: 20,
         borderTopWidth: 1,
         borderColor: '#e0e0e0',
+    },
+    displayNameContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10,
+        padding: 10,
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: 'black',
+        backgroundColor: 'transparent',
+    },
+    displayNameText: {
+        fontSize: 16,
+        // color: '#yourTextColor',
+        marginRight: 10, // Space between text and avatar
+    },
+    avatarImage: {
+        width: 40,
+        height: 40,
+        borderRadius: 20, // Half of width/height to make it round
     },
 });
 exports.default = GenericModal;

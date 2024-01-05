@@ -10,4 +10,6 @@ export interface ModalConfig {
   headerTitle?: string;
   logoutButtonText?: string;
   showFooter?: boolean;
+  displayName?: string,
+  photoURL?: string
 }

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
+import { Image, View, ScrollView, Text, TouchableOpacity, Modal, StyleSheet, PanResponder } from 'react-native';
 import {MayoSettingsModalProps} from './MayoSettingsModalProps';
-import { View, ScrollView, Text, TouchableOpacity, Modal, StyleSheet, PanResponder } from 'react-native';
 
 const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLogout, children, config }) => {
   // Initialize PanResponder
@@ -42,6 +42,15 @@ const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLo
             <TouchableOpacity style={modalStyles.closeButton} onPress={onClose}>
               <Text style={{color: 'black', fontSize: 18}}>X</Text>
             </TouchableOpacity>
+          </View>
+
+          {/* New Section for Display Name and Avatar */}
+          <View style={modalStyles.displayNameContainer}>
+            <Text style={modalStyles.displayNameText}>{config?.displayName}</Text>
+            <Image 
+              source={{ uri: config?.photoURL }}
+              style={modalStyles.avatarImage}
+            />
           </View>
           
           {/* Modal Content */}
@@ -111,6 +120,27 @@ const modalStyles = StyleSheet.create({
     paddingBottom: 20,
     borderTopWidth: 1,
     borderColor: '#e0e0e0',
+  },
+  displayNameContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
+    padding: 10,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: 'black',
+    backgroundColor: 'transparent',
+  },
+  displayNameText: {
+    fontSize: 16,
+    // color: '#yourTextColor',
+    marginRight: 10, // Space between text and avatar
+  },
+  avatarImage: {
+    width: 40, // Adjust size as needed
+    height: 40, // Adjust size as needed
+    borderRadius: 20, // Half of width/height to make it round
   },
 });
 
