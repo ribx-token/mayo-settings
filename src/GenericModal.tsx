@@ -7,10 +7,10 @@ const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLo
   const panResponder = useRef(PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onMoveShouldSetPanResponder: () => true,
-    onPanResponderMove: (evt, gestureState) => {
+    onPanResponderMove: (evt:any, gestureState:any) => {
       // You can add logic here if you want to respond to the moving gesture
     },
-    onPanResponderRelease: (evt, gestureState) => {
+    onPanResponderRelease: (evt:any, gestureState:any) => {
       if (gestureState.dy > 50) { // Adjust this threshold to your liking
         onClose(); // Close the modal if a downward swipe is detected
       }
@@ -40,18 +40,18 @@ const GenericModal: React.FC<MayoSettingsModalProps> = ({ visible, onClose, onLo
           <View style={modalStyles.header} {...panResponder.panHandlers}>
             <Text style={modalStyles.headerTitle}>{headerTitle}</Text>
             <TouchableOpacity style={modalStyles.closeButton} onPress={onClose}>
-              <Text style={{color: 'black', fontSize: 18}}>X</Text>
+              <Text style={{color: 'black', fontSize: 24}}>x</Text>
             </TouchableOpacity>
           </View>
 
           {/* New Section for Display Name and Avatar */}
-          <View style={modalStyles.displayNameContainer}>
-            <Text style={modalStyles.displayNameText}>{config?.displayName}</Text>
-            <Image 
-              source={{ uri: config?.photoURL }}
-              style={modalStyles.avatarImage}
-            />
-          </View>
+          {config?.displayName && (
+            <View style={modalStyles.displayNameContainer}>
+              <Text style={modalStyles.displayNameText}>{config.displayName}</Text>
+              <Image source={{ uri: config.photoURL }} style={modalStyles.avatarImage}
+              />
+            </View>
+          )}
           
           {/* Modal Content */}
           <ScrollView style={modalStyles.content}>
